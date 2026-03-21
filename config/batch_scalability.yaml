@@ -1,0 +1,13 @@
+# PyLoRaWAN - Batch: Sweep de escalabilidade
+# Varia numero de devices mantendo demais parametros fixos
+
+base: config/scenario_50ed_1gw.yaml
+
+sweep:
+  parameter: network.num_devices
+  values: [10, 50, 100, 200, 500, 1000]
+  seeds: [42, 123, 456, 789, 1024]
+
+output:
+  directory: results/scalability/
+  aggregate: true

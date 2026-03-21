@@ -1,0 +1,46 @@
+# PyLoRaWAN - Cenario de Referencia: 50 EDs, 1 GW
+# Compativel com ns3_comparison.ini do FLoRa
+
+simulation:
+  duration_s: 3600
+  seed: 42
+  region: EU868
+
+network:
+  num_devices: 50
+  num_gateways: 1
+  deployment: circular
+  deployment_radius_m: 5000
+  area_size_m: 10000
+
+devices:
+  tx_power_dbm: 14
+  payload_bytes: 20
+  traffic_interval_s: 300
+  adr_enabled: true
+  mobility:
+    enabled: false
+    model: random_walk
+    speed_mps: 1.0
+
+physical:
+  pathloss_model: log_normal_shadowing
+  pathloss_params:
+    gamma: 3.76
+    sigma: 3.57
+    d0_m: 1.0
+    pl_d0_db: 7.7
+
+energy:
+  battery_capacity_mah: 2400
+  voltage: 3.3
+  harvesting:
+    enabled: false
+    model: solar
+    peak_power_mw: 100
+
+output:
+  csv: true
+  json: true
+  plots: true
+  directory: results/scenario_50ed/
